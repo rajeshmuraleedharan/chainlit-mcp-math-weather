@@ -1,0 +1,6 @@
+fastmcp
+chainlit
+strands-agents
+strands-agents-tools
+strands-agents-builder
+boto3
