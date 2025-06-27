@@ -142,3 +142,6 @@ Strands Agents simplifies the process of building AI applications that can reaso
 - AWS Strands Agents for the powerful agent orchestration framework
 - AWS Bedrock for model hosting and inference
 - FastMCP for the MCP server implementation
+
+ ![image](https://github.com/user-attachments/assets/d016556a-c009-4cfe-b9a0-04b1236d0978)
+ 
