@@ -1,6 +1,6 @@
-# Chainlit MCP Math and Weather Assistant
+# Chainlit with AWS Strands Agents and FastMCP
 
-A demonstration of using Chainlit with Model Context Protocol (MCP) server tools for math calculations and weather information.
+A demonstration of AWS Strands Agents orchestrating FastMCP servers through a Chainlit interface to perform math calculations and retrieve weather information.
 
 ## Overview
 
@@ -8,7 +8,7 @@ This project showcases a Chainlit chat application powered by LLMs (Llama-3) tha
 - Perform math calculations 
 - Provide weather information for cities
 
-The application uses Model Context Protocol (MCP) servers as tools to extend the capabilities of the language model.
+The application uses AWS Strands Agents to orchestrate Model Context Protocol (MCP) servers as tools, extending the capabilities of the language model.
 
 ## Features
 
@@ -19,16 +19,17 @@ The application uses Model Context Protocol (MCP) servers as tools to extend the
 ## Architecture
 
 - **Chainlit**: Provides the chat interface
-- **Strands Agents**: Agent framework for tool orchestration
+- **AWS Strands Agents**: Powerful agent framework for orchestrating tools and models
 - **FastMCP Servers**: Advanced MCP servers for math and weather capabilities
 - **Llama-3**: Language model for natural language understanding
-- **Bedrock**: AWS Bedrock for model hosting
+- **AWS Bedrock**: Managed service for foundation models
 
 ## Prerequisites
 
 - Python 3.9+
 - AWS Bedrock access (configured with proper credentials)
 - FastMCP library (`pip install fastmcp`)
+- AWS Strands Agents packages (`pip install strands-agents strands-agents-tools strands-agents-builder`)
 
 ## Installation
 
@@ -108,6 +109,29 @@ The weather server (`weather_mcp_server.py`) simulates weather information:
 - Returns simulated temperature and conditions
 - Uses Pydantic models for input validation
 
+## AWS Strands Agents
+
+This project leverages AWS Strands Agents, a powerful framework for building AI applications with reasoning and tool-calling capabilities. Key features of AWS Strands used in this project:
+
+- **Agent Orchestration**: Coordinates tool selection and execution
+- **Tool Integration**: Seamless integration with FastMCP servers
+- **Multi-tool Management**: Handles multiple MCP tools in parallel
+- **Context Management**: Maintains conversation state across interactions
+- **Model-agnostic Design**: Works with various LLMs including AWS Bedrock models
+
+The application uses the following Strands components:
+```python
+from strands import Agent
+from strands.tools.mcp import MCPClient
+from strands.models import BedrockModel
+```
+
+Strands Agents simplifies the process of building AI applications that can reason about user requests and use tools appropriately to fulfill those requests. In this project, it enables the LLM to:
+
+1. Understand when to use math operations vs. weather queries
+2. Call the appropriate FastMCP server tools
+3. Format the responses back to the user through Chainlit
+
 ## License
 
 [Specify your license]
@@ -115,6 +139,6 @@ The weather server (`weather_mcp_server.py`) simulates weather information:
 ## Acknowledgments
 
 - Chainlit for the chat interface
-- Strands Agents for the agent framework
-- AWS Bedrock for model hosting
+- AWS Strands Agents for the powerful agent orchestration framework
+- AWS Bedrock for model hosting and inference
 - FastMCP for the MCP server implementation
