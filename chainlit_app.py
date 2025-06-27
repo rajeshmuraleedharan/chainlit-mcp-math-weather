@@ -15,7 +15,7 @@ weather_tool = MCPClient(lambda: stdio_client(StdioServerParameters(command="pyt
               #temperature=0.2,)
 
 llm = BedrockModel(
-    model="us.meta.llama3-1-8b-instruct-v1:0", #type: ignore
+    model="your LLM model Id here", #type: ignore
     temperature=0.2,
     region_name="us-east-1" # type: ignore
 ) # type: ignore
